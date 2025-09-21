@@ -40,25 +40,36 @@
 
     .section {
       padding: 40px 20px;
+      text-align: left;
     }
 
     .section h2 {
       font-size: 2rem;
       margin-bottom: 20px;
+      text-align: center;
     }
 
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    /* شريط التمرير */
+    .slider {
+      display: flex;
+      overflow-x: auto;
       gap: 20px;
+      padding: 10px;
+      scroll-snap-type: x mandatory;
+    }
+
+    .slider::-webkit-scrollbar {
+      display: none;
     }
 
     .card {
+      flex: 0 0 300px;
       background: rgba(255,255,255,0.1);
       border-radius: 15px;
       padding: 20px;
       box-shadow: 0 6px 12px rgba(0,0,0,0.4);
       transition: transform 0.3s, background 0.3s;
+      scroll-snap-align: start;
     }
 
     .card:hover {
@@ -68,22 +79,21 @@
 
     .card h3 {
       margin-top: 0;
-      font-size: 1.5rem;
+      font-size: 1.3rem;
     }
 
     .card p {
       font-size: 1rem;
-      margin: 10px 0 20px;
+      margin: 10px 0 15px;
     }
 
-    /* تصميم iframe (يوتيوب) */
     .video-container {
       position: relative;
-      padding-bottom: 56.25%; /* نسبة 16:9 */
+      padding-bottom: 56.25%;
       height: 0;
       overflow: hidden;
       border-radius: 10px;
-      margin-bottom: 15px;
+      margin-bottom: 10px;
     }
 
     .video-container iframe {
@@ -96,7 +106,7 @@
 
     .btn {
       display: inline-block;
-      padding: 10px 15px;
+      padding: 8px 12px;
       border-radius: 8px;
       background: #ff9800;
       color: #000;
@@ -113,20 +123,7 @@
       margin-top: 40px;
       padding: 20px;
       background: rgba(0,0,0,0.6);
-    }
-
-    /* أنميشن */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeIn 1s forwards;
-    }
-
-    @keyframes fadeIn {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      text-align: center;
     }
   </style>
 </head>
@@ -142,35 +139,25 @@
     </div>
   </header>
 
-  <!-- قسم إصدارات بيدروك -->
-  <section id="bedrock" class="section fade-in">
-    <h2>إصدارات ماينكرافت بيدروك</h2>
-    <div class="card-grid">
+  <!-- قسم إصدارات -->
+  <section id="bedrock" class="section">
+    <h2>🟢 إصدارات ماينكرافت بيدروك</h2>
+    <div class="slider">
 
-      <!-- مثال 1 -->
       <div class="card">
         <h3>إصدار 1.20.10</h3>
-        <p>هذا الإصدار يحتوي على تحسينات في الأداء وإصلاح بعض الأخطاء.</p>
+        <p>تحسينات في الأداء وإصلاح بعض الأخطاء.</p>
         <div class="video-container">
-          <iframe src="https://www.youtube.com/embed/abcd1234"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen>
-          </iframe>
+          <iframe src="https://www.youtube.com/embed/abcd1234" frameborder="0" allowfullscreen></iframe>
         </div>
         <a href="downloads/bedrock-1.20.10.apk" class="btn">تحميل الإصدار</a>
       </div>
 
-      <!-- مثال 2 -->
       <div class="card">
         <h3>إصدار 1.19.80</h3>
-        <p>إصدار أقدم يتضمن تحديثات مهمة لعوالم اللعبة.</p>
+        <p>إصدار أقدم يتضمن تحديثات مهمة.</p>
         <div class="video-container">
-          <iframe src="https://www.youtube.com/embed/wxyz5678"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen>
-          </iframe>
+          <iframe src="https://www.youtube.com/embed/wxyz5678" frameborder="0" allowfullscreen></iframe>
         </div>
         <a href="downloads/bedrock-1.19.80.apk" class="btn">تحميل الإصدار</a>
       </div>
@@ -179,34 +166,24 @@
   </section>
 
   <!-- قسم المودات -->
-  <section id="mods" class="section fade-in">
-    <h2>مودات ماينكرافت</h2>
-    <div class="card-grid">
+  <section id="mods" class="section">
+    <h2>🔵 مودات ماينكرافت</h2>
+    <div class="slider">
 
-      <!-- مود 1 -->
       <div class="card">
         <h3>مود الأسلحة</h3>
-        <p>مود يضيف أسلحة جديدة لزيادة متعة القتال في اللعبة.</p>
+        <p>مود يضيف أسلحة جديدة لزيادة متعة القتال.</p>
         <div class="video-container">
-          <iframe src="https://www.youtube.com/embed/asdf9999"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen>
-          </iframe>
+          <iframe src="https://www.youtube.com/embed/asdf9999" frameborder="0" allowfullscreen></iframe>
         </div>
         <a href="downloads/weapons-mod.zip" class="btn">تحميل المود</a>
       </div>
 
-      <!-- مود 2 -->
       <div class="card">
         <h3>مود Minimap</h3>
-        <p>مود يضيف خريطة مصغرة لواجهة اللعب تساعدك على التنقل بسهولة.</p>
+        <p>يضيف خريطة مصغرة لتسهيل التنقل.</p>
         <div class="video-container">
-          <iframe src="https://www.youtube.com/embed/qwer8888"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen>
-          </iframe>
+          <iframe src="https://www.youtube.com/embed/qwer8888" frameborder="0" allowfullscreen></iframe>
         </div>
         <a href="downloads/minimap.zip" class="btn">تحميل المود</a>
       </div>
@@ -219,7 +196,7 @@
   </footer>
 
   <script>
-    // البحث بالكلمات المفتاحية
+    // البحث بالكلمات
     const searchInput = document.getElementById("searchInput");
     const cards = document.querySelectorAll(".card");
 
