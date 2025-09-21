@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>📚 مكتبة ماينكرافت</title>
+  <style>
+    body {
+      font-family: 'Tahoma', sans-serif;
+      margin: 0;
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      color: #fff;
+      text-align: center;
+    }
+
+    header {
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.6);
+      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+
+    .section {
+      padding: 40px 20px;
+    }
+
+    .section h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.1);
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+      transition: transform 0.3s, background 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      background: rgba(255,255,255,0.2);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      font-size: 1.5rem;
+    }
+
+    .card p {
+      font-size: 1rem;
+      margin: 10px 0 20px;
+    }
+
+    video {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    /* تصميم iframe (يوتيوب) */
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%; /* نسبة 16:9 */
+      height: 0;
+      overflow: hidden;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 15px;
+      border-radius: 8px;
+      background: #ff9800;
+      color: #000;
+      font-weight: bold;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background: #ffc107;
+    }
+
+    footer {
+      margin-top: 40px;
+      padding: 20px;
+      background: rgba(0,0,0,0.6);
+    }
+
+    /* أنميشن */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeIn 1s forwards;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>📚 مكتبة ماينكرافت</h1>
+    <p>مودات و إصدارات ماينكرافت بيدروك</p>
+  </header>
+
+  <!-- قسم إصدارات بيدروك -->
+  <section id="bedrock" class="section fade-in">
+    <h2>إصدارات ماينكرافت بيدروك</h2>
+    <div class="card-grid">
+
+      <!-- مثال مع فيديو MP4 -->
+      <div class="card">
+        <h3>إصدار 1.20.10</h3>
+        <p>هذا الإصدار يحتوي على تحسينات في الأداء وإصلاح بعض الأخطاء.</p>
+        <video controls>
+          <source src="videos/bedrock-1.20.10.mp4" type="video/mp4">
+          متصفحك لا يدعم تشغيل الفيديو.
+        </video>
+        <a href="downloads/bedrock-1.20.10.apk" class="btn">تحميل الإصدار</a>
+      </div>
+
+      <!-- مثال مع فيديو يوتيوب -->
+      <div class="card">
+        <h3>إصدار 1.19.80</h3>
+        <p>إصدار أقدم يتضمن تحديثات مهمة لعوالم اللعبة.</p>
+        <div class="video-container">
+          <iframe src="https://www.youtube.com/embed/abcd1234"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen>
+          </iframe>
+        </div>
+        <a href="downloads/bedrock-1.19.80.apk" class="btn">تحميل الإصدار</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- قسم المودات -->
+  <section id="mods" class="section fade-in">
+    <h2>مودات ماينكرافت</h2>
+    <div class="card-grid">
+
+      <!-- مود مع فيديو MP4 -->
+      <div class="card">
+        <h3>مود OptiFine</h3>
+        <p>مود يحسن الجرافيك ويضيف إعدادات متقدمة للرسوم.</p>
+        <video controls>
+          <source src="videos/optifine.mp4" type="video/mp4">
+          متصفحك لا يدعم تشغيل الفيديو.
+        </video>
+        <a href="downloads/optifine.zip" class="btn">تحميل المود</a>
+      </div>
+
+      <!-- مود مع فيديو يوتيوب -->
+      <div class="card">
+        <h3>مود Minimap</h3>
+        <p>مود يضيف خريطة مصغرة لواجهة اللعب تساعدك على التنقل بسهولة.</p>
+        <div class="video-container">
+          <iframe src="https://www.youtube.com/embed/wxyz5678"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen>
+          </iframe>
+        </div>
+        <a href="downloads/minimap.zip" class="btn">تحميل المود</a>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 مكتبة ماينكرافت | جميع الحقوق محفوظة</p>
+  </footer>
+
+</body>
+</html>
