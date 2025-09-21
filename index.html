@@ -24,6 +24,20 @@
       font-size: 2.5rem;
     }
 
+    .search-box {
+      margin: 20px auto;
+      max-width: 400px;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+      font-size: 1rem;
+    }
+
     .section {
       padding: 40px 20px;
     }
@@ -60,12 +74,6 @@
     .card p {
       font-size: 1rem;
       margin: 10px 0 20px;
-    }
-
-    video {
-      width: 100%;
-      border-radius: 10px;
-      margin-bottom: 15px;
     }
 
     /* تصميم iframe (يوتيوب) */
@@ -127,6 +135,11 @@
   <header>
     <h1>📚 مكتبة ماينكرافت</h1>
     <p>مودات و إصدارات ماينكرافت بيدروك</p>
+
+    <!-- صندوق البحث -->
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="ابحث عن مود أو إصدار...">
+    </div>
   </header>
 
   <!-- قسم إصدارات بيدروك -->
@@ -134,23 +147,26 @@
     <h2>إصدارات ماينكرافت بيدروك</h2>
     <div class="card-grid">
 
-      <!-- مثال مع فيديو MP4 -->
+      <!-- مثال 1 -->
       <div class="card">
         <h3>إصدار 1.20.10</h3>
         <p>هذا الإصدار يحتوي على تحسينات في الأداء وإصلاح بعض الأخطاء.</p>
-        <video controls>
-          <source src="videos/bedrock-1.20.10.mp4" type="video/mp4">
-          متصفحك لا يدعم تشغيل الفيديو.
-        </video>
+        <div class="video-container">
+          <iframe src="https://www.youtube.com/embed/abcd1234"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen>
+          </iframe>
+        </div>
         <a href="downloads/bedrock-1.20.10.apk" class="btn">تحميل الإصدار</a>
       </div>
 
-      <!-- مثال مع فيديو يوتيوب -->
+      <!-- مثال 2 -->
       <div class="card">
         <h3>إصدار 1.19.80</h3>
         <p>إصدار أقدم يتضمن تحديثات مهمة لعوالم اللعبة.</p>
         <div class="video-container">
-          <iframe src="https://www.youtube.com/embed/abcd1234"
+          <iframe src="https://www.youtube.com/embed/wxyz5678"
                   frameborder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowfullscreen>
@@ -167,23 +183,26 @@
     <h2>مودات ماينكرافت</h2>
     <div class="card-grid">
 
-      <!-- مود مع فيديو MP4 -->
+      <!-- مود 1 -->
       <div class="card">
-        <h3>مود OptiFine</h3>
-        <p>مود يحسن الجرافيك ويضيف إعدادات متقدمة للرسوم.</p>
-        <video controls>
-          <source src="videos/optifine.mp4" type="video/mp4">
-          متصفحك لا يدعم تشغيل الفيديو.
-        </video>
-        <a href="downloads/optifine.zip" class="btn">تحميل المود</a>
+        <h3>مود الأسلحة</h3>
+        <p>مود يضيف أسلحة جديدة لزيادة متعة القتال في اللعبة.</p>
+        <div class="video-container">
+          <iframe src="https://www.youtube.com/embed/asdf9999"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen>
+          </iframe>
+        </div>
+        <a href="downloads/weapons-mod.zip" class="btn">تحميل المود</a>
       </div>
 
-      <!-- مود مع فيديو يوتيوب -->
+      <!-- مود 2 -->
       <div class="card">
         <h3>مود Minimap</h3>
         <p>مود يضيف خريطة مصغرة لواجهة اللعب تساعدك على التنقل بسهولة.</p>
         <div class="video-container">
-          <iframe src="https://www.youtube.com/embed/wxyz5678"
+          <iframe src="https://www.youtube.com/embed/qwer8888"
                   frameborder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowfullscreen>
@@ -198,6 +217,27 @@
   <footer>
     <p>© 2025 مكتبة ماينكرافت | جميع الحقوق محفوظة</p>
   </footer>
+
+  <script>
+    // البحث بالكلمات المفتاحية
+    const searchInput = document.getElementById("searchInput");
+    const cards = document.querySelectorAll(".card");
+
+    searchInput.addEventListener("keyup", function() {
+      const query = this.value.toLowerCase();
+
+      cards.forEach(card => {
+        const title = card.querySelector("h3").innerText.toLowerCase();
+        const desc = card.querySelector("p").innerText.toLowerCase();
+
+        if (title.includes(query) || desc.includes(query)) {
+          card.style.display = "block";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    });
+  </script>
 
 </body>
 </html>
